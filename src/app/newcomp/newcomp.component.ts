@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-newcomp',
@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NewcompComponent implements OnInit {
   @Input() header = "Greetings";
+  @Output() callParent = new EventEmitter<string>();
   firstName = "";
   lastName = "";
   constructor() { }
@@ -15,7 +16,8 @@ export class NewcompComponent implements OnInit {
   }
 
   clickResults = function(){
-    alert(`Welcome ${this.firstName} ${this.lastName}`);
+    //alert(`Welcome ${this.firstName} ${this.lastName}`);
+    this.callParent.emit(`${this.firstName} ${this.lastName}`);
   }
 
   clickTest = function(){

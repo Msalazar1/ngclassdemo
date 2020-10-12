@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngclassdemo';
+  newName = '';
   isItalic = false;
   isHidden = false;
   secondColor = 'blue';
@@ -16,5 +17,9 @@ export class AppComponent {
   }
   doHidden = function(){
     this.isHidden = !this.isHidden;
+  }
+
+  updateName = function(str){
+    this.newName = str;
   }
 }

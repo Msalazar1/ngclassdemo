@@ -1,9 +1,11 @@
-<h1 [ngClass] = "{'green':true, 'italic':isItalic,'hidden':isHidden}"><strong>Hello World!</strong></h1>
+<h1 [ngClass] = "{'green':true, 'italic':isItalic,'hidden':isHidden}"><strong>Welcome {{newName}}</strong></h1>
 <button [ngClass] = "{'green':true}"(click)="doClick()">click me</button>
 <button [ngClass] = "{'green':true}" (click)="doHidden()">hide me</button>
 
 <h1 [ngStyle]="{'color':secondColor}">Another Header</h1>
-<app-newcomp header="Test"></app-newcomp>
+<app-newcomp (callParent)="updateName($event)" header="Test"></app-newcomp>
 <br />
 <app-newcomp header="More"></app-newcomp>
+
+
 
